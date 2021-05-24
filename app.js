@@ -1,8 +1,6 @@
 const yargs = require('yargs');
 const notes = require('./notes');
 
-const msg = notes.getNotes();
-
 yargs.command({
     command: 'add',
     describe: "Add a note",
@@ -18,7 +16,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler : function(argv) {
+    handler(argv){
         notes.addNotes(argv.title, argv.body);
     }
 })
@@ -34,10 +32,9 @@ yargs.command({
             type: 'string'
         } 
     },
-    handler: function (argv){
+    handler(argv){
         notes.removeNotes(argv.title);
     }
 })
 
 yargs.parse();
-//console.log(yargs.argv);
