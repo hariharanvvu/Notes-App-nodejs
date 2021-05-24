@@ -2,6 +2,14 @@ const yargs = require('yargs');
 const notes = require('./notes');
 
 yargs.command({
+    command: 'list',
+    describe: 'To list Notes',
+    handler(){
+        notes.listNotes();
+    }
+})
+
+yargs.command({
     command: 'add',
     describe: "Add a note",
     builder: {
@@ -20,7 +28,6 @@ yargs.command({
         notes.addNotes(argv.title, argv.body);
     }
 })
-
 
 yargs.command({
     command: 'remove',
