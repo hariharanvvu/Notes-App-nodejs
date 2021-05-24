@@ -10,6 +10,21 @@ yargs.command({
 })
 
 yargs.command({
+    command: 'read',
+    describe: 'To read a Notes',
+    builder: {
+        title : {
+            describe: 'title field',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv){
+        notes.readNotes(argv.title);
+    }
+})
+
+yargs.command({
     command: 'add',
     describe: "Add a note",
     builder: {
